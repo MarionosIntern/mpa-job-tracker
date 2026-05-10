@@ -15,7 +15,7 @@ export function AIPanel({ selectedJob }) {
           <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' }} />
           AI Assistant
         </div>
-        <span style={{ fontSize: 11, color: 'var(--text3)', fontFamily: 'DM Mono, monospace' }}>claude-sonnet-4</span>
+        <span style={{ fontSize: 11, color: 'var(--text3)', fontFamily: 'DM Mono, monospace' }}>claude-haiku-4-5</span>
       </div>
 
       <div style={{ display: 'flex', gap: 2, padding: 8, borderBottom: '1px solid var(--border)' }}>
