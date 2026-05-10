@@ -1,27 +1,17 @@
 {
   "name": "mpa-job-tracker",
   "version": "1.0.0",
-  "description": "A repo for my MPA Job Tracker application (Mariono's Personal AI Job Tracker)",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MarionosIntern/mpa-job-tracker.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/MarionosIntern/mpa-job-tracker/issues"
-  },
-  "homepage": "https://github.com/MarionosIntern/mpa-job-tracker#readme",
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.95.1",
-    "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
+ 
 }
+
