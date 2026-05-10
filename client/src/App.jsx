@@ -80,10 +80,6 @@ export default function App() {
           <NavItem>✍️ Cover Letter</NavItem>
           <NavItem>🎙️ Interview Prep</NavItem>
 
-          <hr style={{ border: 'none', borderTop: '1px solid var(--border)', marginTop: 'auto' }} />
-          <div style={{ fontSize: 11, color: 'var(--text3)', padding: 8, lineHeight: 1.6 }}>
-            Set <code>ANTHROPIC_API_KEY</code> in <code>server/.env</code> to enable AI features.
-          </div>
         </aside>
 
         {/* Kanban */}
