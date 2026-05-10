@@ -1,4 +1,3 @@
-// MPA Job Tracker — Express server + Claude streaming proxy
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
@@ -15,12 +14,11 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' }));
 app.use(express.json());
 
-// Serve built client in production
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));
 }
 
-// ── Claude streaming proxy ──────────────────────────────────────────────────
 app.post('/api/claude', async (req, res) => {
   const { prompt } = req.body;
   if (!prompt) return res.status(400).json({ error: 'prompt is required' });
@@ -54,7 +52,7 @@ app.post('/api/claude', async (req, res) => {
   }
 });
 
-// Catch-all for client-side routing in production
+
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (_req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
