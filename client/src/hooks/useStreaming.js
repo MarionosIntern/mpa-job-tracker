@@ -42,7 +42,7 @@ export function useStreaming() {
               setOutput(text);
             }
           } catch (e) {
-            if (e.message !== 'Unexpected end of JSON input') throw e;
+           // Ignore JSON parse errors for non-JSON lines
           }
         }
       }
