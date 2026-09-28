@@ -47,7 +47,15 @@ app.post('/api/claude', async (req, res) => {
     res.end();
   } catch (err) {
     console.error('Anthropic error:', err.message);
-    res.write(`data: ${JSON.stringify({ error: err.message })}\n\n`);
+    let message = 'Something went wrong generating a response. Please try again.';
+    if (err.status === 401) {
+      message = 'AI features are temporarily unavailable.';
+    } else if (err.status === 400 && /credit balance/i.test(err.message)) {
+      message = 'AI features are temporarily unavailable.';
+    } else if (err.status === 429) {
+      message = 'Too many requests right now. Please wait a moment and try again.';
+    }
+    res.write(`data: ${JSON.stringify({ error: message })}\n\n`);
     res.end();
   }
 });

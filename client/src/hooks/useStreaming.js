@@ -42,7 +42,7 @@ export function useStreaming() {
               setOutput(text);
             }
           } catch (e) {
-           // Ignore JSON parse errors for non-JSON lines
+           
           }
         }
       }
